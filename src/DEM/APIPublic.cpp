@@ -19,13 +19,14 @@
 
 namespace deme {
 
-DEMSolver::DEMSolver(unsigned int nGPUs) {
+//TODO@julian add target_device
+DEMSolver::DEMSolver(unsigned int nGPUs, std::vector<int> target_devices) {
     dTkT_InteractionManager = new ThreadManager();
     kTMain_InteractionManager = new WorkerReportChannel();
     dTMain_InteractionManager = new WorkerReportChannel();
 
     // 2 means 2 threads (nGPUs is currently not used)
-    dTkT_GpuManager = new GpuManager(2);
+    dTkT_GpuManager = new GpuManager(2, target_devices);
 
     dT = new DEMDynamicThread(dTMain_InteractionManager, dTkT_InteractionManager, dTkT_GpuManager);
     kT = new DEMKinematicThread(kTMain_InteractionManager, dTkT_InteractionManager, dTkT_GpuManager);

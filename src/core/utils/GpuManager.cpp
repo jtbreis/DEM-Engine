@@ -5,8 +5,14 @@
 #include "GpuManager.h"
 #include "GpuError.h"
 
-GpuManager::GpuManager(unsigned int total_streams) {
-    ndevices = scanNumDevices();
+// pass the target device here
+GpuManager::GpuManager(unsigned int total_streams, std::vector<int> target_devices) {
+    // check if only one target device is provided
+    if (target_devices(0) == target_devices(1)) {
+        ndevices = 1;
+    } else {
+        ndevices = scanNumDevices();
+    }
 
     // if (ndevices == 0) {
     //     std::cerr << "No GPU device is detected. Try lspci and see what you get.\nIf you indeed have GPU "
@@ -23,11 +29,12 @@ GpuManager::GpuManager(unsigned int total_streams) {
         if (current_device >= ndevices) {
             current_device = 0;
         }
+        auto target_device = target_devices[current_device]; // use the target device for stream creation
 
         cudaStream_t new_stream;
         // cudaStreamCreate(&new_stream);
 
-        this->streams[current_device].push_back(StreamInfo{(signed)current_device, new_stream, false});
+        this->streams[target_device].push_back(StreamInfo{(signed)target_device, new_stream, false});
     }
 }
 
