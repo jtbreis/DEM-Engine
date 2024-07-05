@@ -8,10 +8,15 @@
 // pass the target device here
 GpuManager::GpuManager(unsigned int total_streams, std::vector<int> target_devices) {
     // check if only one target device is provided
-    if (target_devices(0) == target_devices(1)) {
+    if (target_devices[0] == target_devices[1]) {
         ndevices = 1;
     } else {
         ndevices = scanNumDevices();
+    }
+
+    if (target_devices[0] >= scanNumDevices() || target_devices[1] >= scanNumDevices() || target_devices[0] < 0 || target_devices[1] < 0) {
+        std::verr << "Invalid GPU device targets, check your available GPUs by using nvidia-smi.\n";
+        throw std::runtime_error("Invalid GPU device specification!");
     }
 
     // if (ndevices == 0) {
