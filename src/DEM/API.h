@@ -48,7 +48,7 @@ class DEMTracker;
 /// Main DEM-Engine solver.
 class DEMSolver {
   public:
-    DEMSolver(unsigned int nGPUs = 2);
+    DEMSolver(unsigned int nGPUs = 2, std::vector<int> target_devices(0,1)); //TODO@julian added default target device to be 0
     ~DEMSolver();
 
     /// Set output detail level.

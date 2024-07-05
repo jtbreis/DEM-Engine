@@ -7,7 +7,7 @@
 
 class GpuManager {
   public:
-    GpuManager(unsigned int total_streams = 1);
+    GpuManager(unsigned int total_streams = 1, std::vector<int> target_devices(0,1)); //TODO@julian default target device is always 0
     ~GpuManager();
 
     struct StreamInfo {
