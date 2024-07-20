@@ -39,7 +39,7 @@ GpuManager::GpuManager(unsigned int total_streams, std::vector<int> target_devic
         cudaStream_t new_stream;
         // cudaStreamCreate(&new_stream);
 
-        this->streams[target_device].push_back(StreamInfo{(signed)target_device, new_stream, false});
+        this->streams[current_device].push_back(StreamInfo{(signed)target_device, new_stream, false});
     }
 }
 
