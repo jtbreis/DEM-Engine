@@ -13,33 +13,7 @@ SET(LIBRARIES
 # ------------------------------------------------------------------------------
 
 SET(DEMOS
-		DEMdemo_Repose
-		DEMdemo_Repose2D
-		DEMdemo_ContactChain
-		DEMdemo_Plow
-		DEMdemo_Sieve
 		DEMdemo_SingleSphereCollide
-		DEMdemo_TestPack
-		DEMdemo_RotatingDrum
-		DEMdemo_Centrifuge
-		DEMdemo_GameOfLife
-		DEMdemo_BallDrop
-		DEMdemo_BallDrop2D
-		DEMdemo_Mixer
-		DEMdemo_GRCPrep_Part1
-		DEMdemo_GRCPrep_Part2
-		DEMdemo_GRCPrep_Part3
-		DEMdemo_ConePenetration
-		DEMdemo_Shake
-		DEMdemo_WheelDP
-		DEMdemo_WheelDPSimplified
-		DEMdemo_WheelSlopeSlip
-		DEMdemo_Indentation
-		DEMdemo_SolarSystem
-		DEMdemo_Electrostatic
-		DEMdemo_FlexibleMesh
-		DEMdemo_Hopper_Sphere_Cylinder
-		DEMdemo_Fracture_Box
 )
 
 # ------------------------------------------------------------------------------

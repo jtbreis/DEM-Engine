@@ -120,6 +120,7 @@ struct ManagedAllocator {
   private:
     constexpr T* __alloc_impl(std::size_t n) {
         void* vptr = nullptr;
+        cudaSetDevice(1);
         cudaError_t err = cudaMallocManaged(&vptr, n * sizeof(T), cudaMemAttachGlobal);
         if (err == cudaErrorMemoryAllocation || err == cudaErrorNotSupported) {
             throw std::bad_alloc();
