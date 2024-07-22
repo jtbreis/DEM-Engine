@@ -13,6 +13,7 @@
 #include <core/utils/JitHelper.h>
 
 // JitCache(cache size (128 is default in jitify), target GPU device)
+// TODO: maybe this should be set through a parameter in the constructor?
 jitify::JitCache JitHelper::kcache(128, 1);
 
 const std::filesystem::path JitHelper::KERNEL_DIR = RuntimeDataHelper::data_path / "kernel";
