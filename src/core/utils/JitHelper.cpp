@@ -33,27 +33,27 @@ void JitHelper::Header::substitute(const std::string& symbol, const std::string&
     }
 }
 
-jitify::Program JitHelper::buildProgram(
-    const std::string& name,
-    const std::filesystem::path& source,
-    std::unordered_map<std::string, std::string> substitutions,
-    // std::vector<JitHelper::Header> headers, // THIS PARAMETER PROBABLY WON'T EVER BE USED
-    std::vector<std::string> flags) {
-    std::string code = name + "\n";
+// jitify::Program JitHelper::buildProgram(
+//     const std::string& name,
+//     const std::filesystem::path& source,
+//     std::unordered_map<std::string, std::string> substitutions,
+//     // std::vector<JitHelper::Header> headers, // THIS PARAMETER PROBABLY WON'T EVER BE USED
+//     std::vector<std::string> flags) {
+//     std::string code = name + "\n";
 
-    code.append(JitHelper::loadSourceFile(source));
-    // Apply the substitutions
-    for (auto& subst : substitutions) {
-        code = std::regex_replace(code, std::regex(subst.first), subst.second);
-    }
+//     code.append(JitHelper::loadSourceFile(source));
+//     // Apply the substitutions
+//     for (auto& subst : substitutions) {
+//         code = std::regex_replace(code, std::regex(subst.first), subst.second);
+//     }
 
-    std::vector<std::string> header_code;
-    // THIS BLOCK IS ONLY NEEDED IF THE headers PARAMETER IS USED
-    /*
-    for (auto it = headers.begin(); it != headers.end(); it++) {
-        header_code.push_back(it->getSource());
-    }
-    */
+//     std::vector<std::string> header_code;
+//     // THIS BLOCK IS ONLY NEEDED IF THE headers PARAMETER IS USED
+//     /*
+//     for (auto it = headers.begin(); it != headers.end(); it++) {
+//         header_code.push_back(it->getSource());
+//     }
+//     */
 
-    return kcache.program(code, header_code, flags);
-}
+//     return kcache.program(code, header_code, flags);
+// }
