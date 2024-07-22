@@ -22,7 +22,8 @@ using namespace deme;
 using namespace std::filesystem;
 
 int main() {
-    DEMSolver DEMSim;
+    // for testing!! - select the target GPUs in DEMSolver initialization
+    DEMSolver DEMSim(1, {1,1});
     DEMSim.SetVerbosity(STEP_DEBUG);
     DEMSim.SetOutputFormat(OUTPUT_FORMAT::CSV);
     DEMSim.SetContactOutputContent({"OWNER", "FORCE", "POINT", "COMPONENT", "NORMAL", "TORQUE"});

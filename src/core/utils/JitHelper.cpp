@@ -12,7 +12,8 @@
 #include <core/utils/RuntimeData.h>
 #include <core/utils/JitHelper.h>
 
-jitify::JitCache JitHelper::kcache;
+// JitCache(cache size (128 is default in jitify), target GPU device)
+jitify::JitCache JitHelper::kcache(128, 1);
 
 const std::filesystem::path JitHelper::KERNEL_DIR = RuntimeDataHelper::data_path / "kernel";
 const std::filesystem::path JitHelper::KERNEL_INCLUDE_DIR = RuntimeDataHelper::include_path;

@@ -1,3 +1,4 @@
 [submodule "thirdparty/jitify"]
 	path = thirdparty/jitify
-	url = https://github.com/NVIDIA/jitify.git
+	url = https://github.com/jtbreis/jitify.git
+	branch = modification/gpu-targeting
